@@ -1,8 +1,12 @@
 #!/bin/bash
-INPUT_FOLDER="/home/kimsooyeon/GAN/UNIT/TRAIN_data/amod2visdrone/trainA"
-OUTPUT_FOLDER="/home/kimsooyeon/GAN/UNIT/RESULT_data/amod2visdrone/train"
-CONFIG="/home/kimsooyeon/GAN/UNIT/configs/unit_dior2visdrone.yaml"
-CHECKPOINT="/home/kimsooyeon/GAN/UNIT/work_dir/dior2visdroneIR/outputs/unit_dior2visdrone/checkpoints/gen_00020000.pt"
+
+# 루트 경로 지정
+ROOT="/home/kimsooyeon/GAN/UNIT-RGBtoIR"
+
+INPUT_FOLDER="$ROOT/TRAIN_data/amod2visdrone/trainA"
+OUTPUT_FOLDER="$ROOT/RESULT_data/amod2visdrone/train"
+CONFIG="$ROOT/configs/unit_dior2visdrone.yaml"
+CHECKPOINT="$ROOT/work_dir/dior2visdroneIR/outputs/unit_dior2visdrone/checkpoints/gen_00020000.pt"
 
 for img in "$INPUT_FOLDER"/*.{png,jpg,jpeg}; do
   if [ -f "$img" ]; then
@@ -18,5 +22,3 @@ for img in "$INPUT_FOLDER"/*.{png,jpg,jpeg}; do
       --output_only
   fi
 done
-
-

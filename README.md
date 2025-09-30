@@ -2,54 +2,54 @@
 
 
 * **Step 1**. Create a conda environment with Python 3.8 and activate it.
-    ~~~shell
-    conda create --name UNIT python=3.8 -y
-    conda activate UNIT
-    ~~~
+~~~shell
+conda create --name UNIT python=3.8 -y
+conda activate UNIT
+~~~
 
 * **Step 2.** Install PyTorch with TorchVision following [official instructions](https://pytorch.org/get-started/locally/). The below is an example. We do not recommend PyTorch 2.x for our code.
-    ~~~shell
-    pip install torch==1.13.0+cu117 torchvision==0.14.0+cu117 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu117
-    ~~~
+~~~shell
+pip install torch==1.13.0+cu117 torchvision==0.14.0+cu117 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu117
+~~~
 
 * **Step 3.** Install some libraries
-    ~~~shell
-    conda install -y -c anaconda pip
-    conda install -y -c anaconda pyyaml
-    pip install tensorboard tensorboardX
-    ~~~
- 
+~~~shell
+conda install -y -c anaconda pip
+conda install -y -c anaconda pyyaml
+pip install tensorboard tensorboardX
+~~~
+
   
 ### Train a model:
 You can use the following commands to train a model from the dataset.
-    ~~~shell
-    python train.py \
-        --config "$CONFIG" \
-        --output_path "$OUTPUT_FOLDER" \
-        --trainer UNIT
-    ~~~
+~~~shell
+python train.py \
+    --config "$CONFIG" \
+    --output_path "$OUTPUT_FOLDER" \
+    --trainer UNIT
+~~~
 
 
 ### I2I Translation with model checkpoint:
 You can use the following commands to translate a image from the dataset.
-    ~~~shell
-    python test.py \
-          --trainer UNIT \
-          --config "$CONFIG" \
-          --input "$img" \
-          --output_folder "$OUTPUT_FOLDER" \
-          --checkpoint "$CHECKPOINT" \
-          --a2b 1 \
-          --output_only
-    ~~~
+~~~shell
+python test.py \
+      --trainer UNIT \
+      --config "$CONFIG" \
+      --input "$img" \
+      --output_folder "$OUTPUT_FOLDER" \
+      --checkpoint "$CHECKPOINT" \
+      --a2b 1 \
+      --output_only
+~~~
 
 
 ### Using Bash Shell Script 
 
 Batch Inference (Image Translation)
-    ~~~bash
-    bash transfer.sh
-    ~~~
+~~~bash
+bash transfer.sh
+~~~
 
 
 

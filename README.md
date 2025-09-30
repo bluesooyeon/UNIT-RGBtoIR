@@ -19,7 +19,17 @@ conda install -y -c anaconda pyyaml
 pip install tensorboard tensorboardX
 ~~~
 
-  
+
+### Dataset Preparation
+To prepare the dataset, create the following folder structure and place the images accordingly:
+~~~
+dataset/
+├── trainA/ # Images from domain A for training
+├── trainB/ # Images from domain B for training
+├── testA/ # Images from domain A for testing
+└── testB/ # Images from domain B for testing
+~~~
+
 ### Train a model:
 You can use the following commands to train a model from the dataset.
 ~~~shell
